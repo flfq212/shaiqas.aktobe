@@ -9,7 +9,7 @@
         /* Основные стили */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -17,39 +17,29 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            color: #333;
         }
 
         .container {
-            background: linear-gradient(145deg, #4caf50, #388e3c);
-            border-radius: 20px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
             text-align: center;
             width: 90%;
             max-width: 600px;
-            color: white;
-        }
-
-        /* Логотип */
-        .logo {
-            width: 150px;
-            margin-bottom: 30px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .logo:hover {
-            transform: rotate(15deg) scale(1.1);
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 20px;
             font-weight: 600;
-            letter-spacing: 2px;
+            color: #333;
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            color: #666;
             margin-bottom: 20px;
         }
 
@@ -65,64 +55,64 @@
         }
 
         .rating label {
-            font-size: 2rem;
+            font-size: 2.5rem;
             cursor: pointer;
             width: 70px;
             height: 70px;
             line-height: 70px;
             border-radius: 50%;
-            background-color: #6c757d;
-            color: white;
+            background-color: #ccc;
+            color: #fff;
             transition: all 0.3s ease-in-out;
             margin: 5px;
             user-select: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .rating label:hover,
         .rating label:active {
             transform: scale(1.1);
-            background-color: #28a745;
+            background-color: #007bff;
         }
 
         /* Подсвечиваем выбранную оценку */
         .rating input:checked + label {
-            background-color: #28a745;
+            background-color: #007bff;
             transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
         .submit-btn {
-            background-color: #28a745;
+            background-color: #007bff;
             color: white;
             border: none;
             padding: 15px 30px;
-            border-radius: 50px;
+            border-radius: 30px;
             font-size: 1.2rem;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 30px;
             transition: background-color 0.3s ease;
             width: 100%;
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
 
         .submit-btn:hover {
-            background-color: #218838;
+            background-color: #0056b3;
         }
 
         .submit-btn:active {
-            background-color: #1e7e34;
+            background-color: #004085;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .rating label {
-                font-size: 1.6rem;
+                font-size: 2rem;
                 width: 60px;
                 height: 60px;
             }
@@ -140,7 +130,7 @@
             }
 
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
 
             .submit-btn {
@@ -148,15 +138,11 @@
                 padding: 12px 20px;
             }
         }
-
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Логотип вашего клуба -->
-    <img src="https://github.com/flfq212/shaiqas.aktobe/blob/main/WhatsApp%20Image%202024-11-22%20at%2010.44.02.jpeg" alt="Shaiqas Club Logo" class="logo">
-
     <h1>Оцените работу клуба Shaiqas</h1>
     <p>Пожалуйста, выберите оценку от 1 до 5</p>
 
