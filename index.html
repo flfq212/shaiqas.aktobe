@@ -48,8 +48,8 @@
         .rating {
             display: flex;
             justify-content: space-evenly;
-            flex-wrap: wrap;
             margin: 20px 0;
+            direction: rtl; /* Звезды справа налево */
         }
 
         .rating input {
@@ -57,36 +57,25 @@
         }
 
         .rating label {
-            font-size: 2.5rem;
             cursor: pointer;
-            width: 70px;
-            height: 70px;
-            line-height: 70px;
-            border-radius: 50%;
-            background-color: #555;
-            color: #fff;
-            transition: all 0.3s ease-in-out;
-            margin: 5px;
-            user-select: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 5px;
+            width: 60px;
+            height: 60px;
+            display: inline-block;
         }
 
-        .rating label:hover,
-        .rating label:active {
-            transform: scale(1.1);
-            background-color: #007bff;
+        /* SVG иконка звезды */
+        .rating label svg {
+            width: 100%;
+            height: 100%;
+            fill: #bbb;
+            transition: fill 0.3s ease;
         }
 
-        /* Подсвечиваем выбранную оценку */
-        .rating input:checked + label {
-            background-color: #007bff;
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Подсвечиваем все звезды до выбранной */
-        .rating input:checked ~ input:checked + label {
-            background-color: #007bff;
+        /* Когда оценка выбрана */
+        .rating input:checked ~ label svg,
+        .rating input:checked ~ input:checked ~ label svg {
+            fill: #007bff;
         }
 
         .submit-btn {
@@ -119,9 +108,8 @@
             }
 
             .rating label {
-                font-size: 2rem;
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
             }
 
             .submit-btn {
@@ -131,9 +119,8 @@
 
         @media (max-width: 480px) {
             .rating label {
-                font-size: 1.5rem;
-                width: 50px;
-                height: 50px;
+                width: 40px;
+                height: 40px;
             }
 
             h1 {
@@ -150,25 +137,35 @@
 <body class="dark-mode">
 
 <div class="container">
-    <h1>Оцените работу клуба Shaiqas</h1>
+    <h1>Оцените работу Shaiqas Cyberzone</h1>
     <p>Пожалуйста, выберите оценку от 1 до 5</p>
 
     <form id="rating-form">
         <div class="rating">
             <input type="radio" name="rating" value="1" id="rating-1">
-            <label for="rating-1">1</label>
+            <label for="rating-1">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27l5.18 3.73-1.64-6.88L21 9.24l-6.91-.57L12 2 9.91 8.67 3 9.24l4.46 4.88-1.64 6.88L12 17.27z"/></svg>
+            </label>
 
             <input type="radio" name="rating" value="2" id="rating-2">
-            <label for="rating-2">2</label>
+            <label for="rating-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27l5.18 3.73-1.64-6.88L21 9.24l-6.91-.57L12 2 9.91 8.67 3 9.24l4.46 4.88-1.64 6.88L12 17.27z"/></svg>
+            </label>
 
             <input type="radio" name="rating" value="3" id="rating-3">
-            <label for="rating-3">3</label>
+            <label for="rating-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27l5.18 3.73-1.64-6.88L21 9.24l-6.91-.57L12 2 9.91 8.67 3 9.24l4.46 4.88-1.64 6.88L12 17.27z"/></svg>
+            </label>
 
             <input type="radio" name="rating" value="4" id="rating-4">
-            <label for="rating-4">4</label>
+            <label for="rating-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27l5.18 3.73-1.64-6.88L21 9.24l-6.91-.57L12 2 9.91 8.67 3 9.24l4.46 4.88-1.64 6.88L12 17.27z"/></svg>
+            </label>
 
             <input type="radio" name="rating" value="5" id="rating-5">
-            <label for="rating-5">5</label>
+            <label for="rating-5">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27l5.18 3.73-1.64-6.88L21 9.24l-6.91-.57L12 2 9.91 8.67 3 9.24l4.46 4.88-1.64 6.88L12 17.27z"/></svg>
+            </label>
         </div>
         <button type="submit" class="submit-btn">Отправить</button>
     </form>
