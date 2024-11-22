@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оцените работу Shaiqas Cyberzone</title>
+    <title>Оцените работу клуба Shaiqas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Основные стили */
+        /* Общие стили */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212; /* темный фон */
+            color: #fff;
             margin: 0;
             padding: 0;
+            height: 100vh;
         }
 
         .container {
@@ -18,71 +21,76 @@
             max-width: 600px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #1f1f1f; /* темный фон контейнера */
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            text-align: center;
         }
 
         h1 {
-            text-align: center;
-            color: #333;
-            font-size: 24px;
+            font-family: 'Press Start 2P', cursive; /* шрифт в стиле пиксельных игр */
+            color: #00ff00; /* яркий цвет для заголовков */
+            font-size: 28px;
+            margin-bottom: 20px;
         }
 
         p {
-            font-size: 16px;
-            color: #333;
+            font-size: 18px;
+            color: #aaa;
         }
 
         .rating {
             display: flex;
             justify-content: space-around;
             margin: 20px 0;
-            flex-wrap: wrap; /* Чтобы кнопки переносились на мобильных устройствах */
+            flex-wrap: wrap;
         }
 
         .rating label {
-            font-size: 20px;
+            font-size: 22px;
             cursor: pointer;
-            padding: 10px 15px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
+            padding: 15px 20px;
+            border: 3px solid #555;
+            border-radius: 50%;
             transition: background-color 0.3s, transform 0.2s;
-            margin: 5px;
-            width: 45%; /* Делаем кнопки более удобными для мобильных */
-            text-align: center;
+            margin: 10px;
+            width: 20%;
+            color: #fff;
+            background-color: #333;
         }
 
         .rating input {
             display: none;
         }
 
-        /* Окрас выбранной оценки */
+        /* Активная оценка */
         .rating input:checked + label {
-            background-color: #4CAF50;
-            color: #fff;
-            border-color: #4CAF50;
+            background-color: #00ff00;
+            border-color: #00ff00;
+            transform: scale(1.2); /* увеличение размера выбранной оценки */
         }
 
+        /* Эффект при наведении */
         .rating label:hover {
-            background-color: #f0f0f0;
-            transform: scale(1.05);
+            background-color: #444;
+            transform: scale(1.1);
         }
 
-        /* Стили для кнопки отправки */
+        /* Кнопка отправки */
         .submit-btn {
             width: 100%;
             padding: 12px;
-            background-color: #4CAF50;
-            color: #fff;
+            background-color: #00ff00;
+            color: #121212;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
+            font-size: 20px;
             cursor: pointer;
-            font-size: 16px;
+            transition: background-color 0.3s;
         }
 
         .submit-btn:hover {
-            background-color: #45a049;
+            background-color: #33cc33;
         }
 
         /* Адаптивность для мобильных устройств */
@@ -92,44 +100,45 @@
             }
 
             h1 {
-                font-size: 20px;
+                font-size: 24px;
             }
 
             .rating label {
-                font-size: 18px;
-                width: 30%; /* Уменьшаем размер кнопок для мобильных */
+                font-size: 20px;
+                width: 25%; /* ширина кнопок для планшетов */
             }
 
             .submit-btn {
                 font-size: 18px;
-                padding: 14px;
+                padding: 15px;
             }
         }
 
         @media (max-width: 480px) {
             .rating label {
-                font-size: 16px;
-                width: 45%; /* Увеличиваем ширину для маленьких экранов */
+                font-size: 18px;
+                width: 30%; /* ширина кнопок для мобильных */
             }
 
             .submit-btn {
-                font-size: 18px;
+                font-size: 16px;
                 padding: 14px;
             }
 
             h1 {
-                font-size: 18px;
+                font-size: 20px;
             }
         }
+
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Оцените работу Shaiqas Cyberzone</h1>
+    <h1>Оцените работу клуба Shaiqas</h1>
     
     <form id="rating-form">
-        <p>Пожалуйста, поставьте оценку от 1 до 5. Ваша оценка очень важна для нас :):</p>
+        <p>Пожалуйста, поставьте оценку от 1 до 5:</p>
         <div class="rating">
             <input type="radio" name="rating" value="1" id="rating-1">
             <label for="rating-1">1</label>
@@ -167,7 +176,7 @@
         // Логика перенаправления
         if (ratingValue < 4) {
             // Перенаправление на WhatsApp при оценке < 4
-            window.location.href = 'https://wa.me/77011443070?text=Здравствуйте,%20у%20меня%20есть%20замечания%20по%20Вашему%20клубу';
+            window.location.href = 'https://wa.me/номер_вашего_телефона?text=Здравствуйте,%20у%20меня%20есть%20замечания%20по%20Вашему%20клубу';
         } else {
             // Перенаправление на 2ГИС при оценке >= 4
             window.location.href = 'https://2gis.kz/aktobe/geo/70000001093439273';
