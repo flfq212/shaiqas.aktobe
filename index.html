@@ -18,7 +18,6 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -29,7 +28,6 @@
             text-align: center;
             width: 90%;
             max-width: 600px;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         h1 {
@@ -75,8 +73,8 @@
             fill: #007bff;
         }
 
-        /* Подсвечиваем выбранную оценку */
-        .rating input:checked + label svg {
+        /* Подсвечиваем все звезды до выбранной */
+        .active svg {
             fill: #007bff;
         }
 
@@ -179,6 +177,25 @@
 </div>
 
 <script>
+    // Функция для подсветки звезд
+    const ratingInputs = document.querySelectorAll('input[name="rating"]');
+    const labels = document.querySelectorAll('label');
+
+    ratingInputs.forEach((input) => {
+        input.addEventListener('change', (e) => {
+            const selectedValue = parseInt(e.target.value);
+
+            // Убираем активный класс у всех звезд
+            labels.forEach((label, index) => {
+                if (index < selectedValue) {
+                    label.classList.add('active');  // Подсвечиваем звезды до выбранной
+                } else {
+                    label.classList.remove('active');  // Убираем подсветку
+                }
+            });
+        });
+    });
+
     // Обработка отправки формы
     document.getElementById('rating-form').addEventListener('submit', function(event) {
         event.preventDefault();  // предотвращаем отправку формы
