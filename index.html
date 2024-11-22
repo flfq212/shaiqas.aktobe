@@ -47,8 +47,7 @@
 
         .rating {
             display: flex;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
+            justify-content: center;
             margin: 20px 0;
         }
 
@@ -57,31 +56,28 @@
         }
 
         .rating label {
-            font-size: 2.5rem;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
-            width: 70px;
-            height: 70px;
-            line-height: 70px;
-            border-radius: 50%;
-            background-color: #555;
-            color: #fff;
+            margin: 0 10px;
             transition: all 0.3s ease-in-out;
-            margin: 5px;
-            user-select: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .rating label:hover,
-        .rating label:active {
-            transform: scale(1.1);
-            background-color: #007bff;
+        .rating label svg {
+            width: 100%;
+            height: 100%;
+            fill: #555;
+            transition: fill 0.3s ease-in-out;
+        }
+
+        .rating label:hover svg,
+        .rating label:active svg {
+            fill: #007bff;
         }
 
         /* Подсвечиваем выбранную оценку */
-        .rating input:checked + label {
-            background-color: #007bff;
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        .rating input:checked + label svg {
+            fill: #007bff;
         }
 
         .submit-btn {
@@ -107,26 +103,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Кнопка для переключения темы */
-        .theme-toggle-btn {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            border: none;
-            margin-bottom: 20px;
-            transition: background-color 0.3s ease;
-        }
-
-        .theme-toggle-btn:hover {
-            background-color: #0056b3;
-        }
-
-        .theme-toggle-btn:active {
-            background-color: #004085;
-        }
-
         /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
             h1 {
@@ -134,9 +110,8 @@
             }
 
             .rating label {
-                font-size: 2rem;
-                width: 60px;
-                height: 60px;
+                width: 40px;
+                height: 40px;
             }
 
             .submit-btn {
@@ -146,9 +121,8 @@
 
         @media (max-width: 480px) {
             .rating label {
-                font-size: 1.5rem;
-                width: 50px;
-                height: 50px;
+                width: 35px;
+                height: 35px;
             }
 
             h1 {
@@ -162,10 +136,7 @@
         }
     </style>
 </head>
-<body class="dark-mode">
-
-<!-- Кнопка для переключения темы -->
-<button id="theme-toggle" class="theme-toggle-btn">Переключить тему</button>
+<body>
 
 <div class="container">
     <h1>Оцените работу клуба Shaiqas</h1>
@@ -174,38 +145,40 @@
     <form id="rating-form">
         <div class="rating">
             <input type="radio" name="rating" value="1" id="rating-1">
-            <label for="rating-1">1</label>
+            <label for="rating-1">
+                <!-- SVG иконка для оценки 1 -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </label>
 
             <input type="radio" name="rating" value="2" id="rating-2">
-            <label for="rating-2">2</label>
+            <label for="rating-2">
+                <!-- SVG иконка для оценки 2 -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </label>
 
             <input type="radio" name="rating" value="3" id="rating-3">
-            <label for="rating-3">3</label>
+            <label for="rating-3">
+                <!-- SVG иконка для оценки 3 -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </label>
 
             <input type="radio" name="rating" value="4" id="rating-4">
-            <label for="rating-4">4</label>
+            <label for="rating-4">
+                <!-- SVG иконка для оценки 4 -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </label>
 
             <input type="radio" name="rating" value="5" id="rating-5">
-            <label for="rating-5">5</label>
+            <label for="rating-5">
+                <!-- SVG иконка для оценки 5 -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </label>
         </div>
         <button type="submit" class="submit-btn">Отправить</button>
     </form>
 </div>
 
 <script>
-    // Переключение темы
-    document.getElementById('theme-toggle').addEventListener('click', function() {
-        document.body.classList.toggle('dark-mode');
-        const isDark = document.body.classList.contains('dark-mode');
-        
-        // Изменяем текст кнопки в зависимости от темы
-        if (isDark) {
-            this.textContent = "Переключить на светлую тему";
-        } else {
-            this.textContent = "Переключить на тёмную тему";
-        }
-    });
-
     // Обработка отправки формы
     document.getElementById('rating-form').addEventListener('submit', function(event) {
         event.preventDefault();  // предотвращаем отправку формы
@@ -213,20 +186,10 @@
         // Получаем выбранную оценку
         const rating = document.querySelector('input[name="rating"]:checked');
 
-        if (!rating) {
-            alert("Пожалуйста, выберите оценку!");
-            return;
-        }
-
-        const ratingValue = parseInt(rating.value);
-
-        // Логика перенаправления
-        if (ratingValue < 4) {
-            // Перенаправление на WhatsApp при оценке < 4
-            window.location.href = 'https://wa.me/77011443070?text=Здравствуйте,%20у%20меня%20есть%20замечания%20по%20Вашему%20клубу';
+        if (rating) {
+            alert('Спасибо за вашу оценку! Вы выбрали: ' + rating.value);
         } else {
-            // Перенаправление на 2ГИС при оценке >= 4
-            window.location.href = 'https://2gis.kz/aktobe/geo/70000001093439273';
+            alert('Пожалуйста, выберите оценку.');
         }
     });
 </script>
