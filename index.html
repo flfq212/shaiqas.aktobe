@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оцените работу Shaiqas Cyberclub</title>
+    <title>Оцените работу Shaiqas Cyberzone</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /* Основные стили */
@@ -47,7 +47,6 @@
             display: flex;
             justify-content: space-evenly;
             margin: 20px 0;
-            direction: rtl; /* Звезды справа налево */
         }
 
         .rating input {
@@ -66,14 +65,13 @@
         .rating label svg {
             width: 100%;
             height: 100%;
-            fill: #bbb;
+            fill: #007bff; /* Все звезды синие по умолчанию */
             transition: fill 0.3s ease;
         }
 
-        /* Когда оценка выбрана */
-        .rating input:checked ~ label svg,
-        .rating input:checked ~ input:checked ~ label svg {
-            fill: #007bff;
+        /* Серый цвет для неактивных звезд */
+        .rating label.inactive svg {
+            fill: #bbb; /* Серый цвет для неактивных звезд */
         }
 
         .submit-btn {
@@ -140,27 +138,27 @@
     <form id="rating-form">
         <div class="rating">
             <input type="radio" name="rating" value="1" id="rating-1">
-            <label for="rating-1">
+            <label for="rating-1" class="inactive">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27l5.18 3.73-1.64-6.88L21 9.24l-6.91-.57L12 2 9.91 8.67 3 9.24l4.46 4.88-1.64 6.88L12 17.27z"/></svg>
             </label>
 
             <input type="radio" name="rating" value="2" id="rating-2">
-            <label for="rating-2">
+            <label for="rating-2" class="inactive">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27l5.18 3.73-1.64-6.88L21 9.24l-6.91-.57L12 2 9.91 8.67 3 9.24l4.46 4.88-1.64 6.88L12 17.27z"/></svg>
             </label>
 
             <input type="radio" name="rating" value="3" id="rating-3">
-            <label for="rating-3">
+            <label for="rating-3" class="inactive">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27l5.18 3.73-1.64-6.88L21 9.24l-6.91-.57L12 2 9.91 8.67 3 9.24l4.46 4.88-1.64 6.88L12 17.27z"/></svg>
             </label>
 
             <input type="radio" name="rating" value="4" id="rating-4">
-            <label for="rating-4">
+            <label for="rating-4" class="inactive">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27l5.18 3.73-1.64-6.88L21 9.24l-6.91-.57L12 2 9.91 8.67 3 9.24l4.46 4.88-1.64 6.88L12 17.27z"/></svg>
             </label>
 
             <input type="radio" name="rating" value="5" id="rating-5">
-            <label for="rating-5">
+            <label for="rating-5" class="inactive">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27l5.18 3.73-1.64-6.88L21 9.24l-6.91-.57L12 2 9.91 8.67 3 9.24l4.46 4.88-1.64 6.88L12 17.27z"/></svg>
             </label>
         </div>
@@ -169,6 +167,22 @@
 </div>
 
 <script>
+    // Получаем все элементы с оценками
+    const ratings = document.querySelectorAll('input[name="rating"]');
+    const labels = document.querySelectorAll('.rating label');
+    
+    ratings.forEach((rating, index) => {
+        rating.addEventListener('click', () => {
+            // Очищаем все звезды, делаем их серыми
+            labels.forEach(label => label.classList.add('inactive'));
+
+            // Активируем нужные звезды, включая кликнутую
+            for (let i = 0; i <= index; i++) {
+                labels[i].classList.remove('inactive');
+            }
+        });
+    });
+
     // Обработка отправки формы
     document.getElementById('rating-form').addEventListener('submit', function(event) {
         event.preventDefault();  // предотвращаем отправку формы
@@ -190,8 +204,7 @@
         } else {
             // Выводим сообщение о перенаправлении
             alert("Похоже, у Вас есть что сказать. Вы будете перенаправлены в чат с владельцем клуба для дальнейшего обсуждения.");
-
-            // Перенаправление на WhatsApp при оценке < 4
+       // Перенаправление на WhatsApp при оценке < 4
             window.location.href = 'https://wa.me/77011443070?text=Здравствуйте,%20у%20меня%20есть%20замечания%20по%20Вашему%20клубу';
         }
     });
