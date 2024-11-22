@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оцените работу клуба Shaiqas</title>
+    <title>Оцените работу Shaiqas Cyberzone</title>
     <style>
+        /* Основные стили */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -15,7 +16,7 @@
         .container {
             width: 100%;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
@@ -25,21 +26,31 @@
         h1 {
             text-align: center;
             color: #333;
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #333;
         }
 
         .rating {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             margin: 20px 0;
+            flex-wrap: wrap; /* Чтобы кнопки переносились на мобильных устройствах */
         }
 
         .rating label {
             font-size: 20px;
             cursor: pointer;
-            padding: 10px;
+            padding: 10px 15px;
             border: 2px solid #ddd;
             border-radius: 5px;
             transition: background-color 0.3s, transform 0.2s;
+            margin: 5px;
+            width: 45%; /* Делаем кнопки более удобными для мобильных */
+            text-align: center;
         }
 
         .rating input {
@@ -58,28 +69,67 @@
             transform: scale(1.05);
         }
 
+        /* Стили для кнопки отправки */
         .submit-btn {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: #4CAF50;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
         }
 
         .submit-btn:hover {
             background-color: #45a049;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .rating label {
+                font-size: 18px;
+                width: 30%; /* Уменьшаем размер кнопок для мобильных */
+            }
+
+            .submit-btn {
+                font-size: 18px;
+                padding: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .rating label {
+                font-size: 16px;
+                width: 45%; /* Увеличиваем ширину для маленьких экранов */
+            }
+
+            .submit-btn {
+                font-size: 18px;
+                padding: 14px;
+            }
+
+            h1 {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Оцените работу клуба Shaiqas</h1>
+    <h1>Оцените работу Shaiqas Cyberzone</h1>
     
     <form id="rating-form">
-        <p>Пожалуйста, поставьте оценку от 1 до 5:</p>
+        <p>Пожалуйста, поставьте оценку от 1 до 5. Ваша оценка очень важна для нас :):</p>
         <div class="rating">
             <input type="radio" name="rating" value="1" id="rating-1">
             <label for="rating-1">1</label>
@@ -117,7 +167,7 @@
         // Логика перенаправления
         if (ratingValue < 4) {
             // Перенаправление на WhatsApp при оценке < 4
-            window.location.href = 'https://wa.me/77011443070?text=Здравствуйте,%20хочу%20обсудить%20оценку%20клуба';
+            window.location.href = 'https://wa.me/77011443070?text=Здравствуйте,%20у%20меня%20есть%20замечания%20по%20Вашему%20клубу';
         } else {
             // Перенаправление на 2ГИС при оценке >= 4
             window.location.href = 'https://2gis.kz/aktobe/geo/70000001093439273';
