@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оцените работу Shaiqas Cyberzone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .rating label {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Оцените работу Shaiqas Cyberzone. Ваша оценка важна для нас</h1>
+    
+    <form id="rating-form">
+        <p>Пожалуйста, поставьте оценку от 1 до 5:</p>
+        <div class="rating">
+            <label>
+                1
+                <input type="radio" name="rating" value="1">
+            </label>
+            <label>
+                2
+                <input type="radio" name="rating" value="2">
+            </label>
+            <label>
+                3
+                <input type="radio" name="rating" value="3">
+            </label>
+            <label>
+                4
+                <input type="radio" name="rating" value="4">
+            </label>
+            <label>
+                5
+                <input type="radio" name="rating" value="5">
+            </label>
+        </div>
+        <button type="submit" class="submit-btn">Отправить</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('rating-form').addEventListener('submit', function(event) {
+        event.preventDefault();  // предотвращаем отправку формы
+
+        // Получаем выбранную оценку
+        const rating = document.querySelector('input[name="rating"]:checked');
+
+        if (!rating) {
+            alert("Пожалуйста, выберите оценку!");
+            return;
+        }
+
+        const ratingValue = parseInt(rating.value);
+
+        // Логика перенаправления
+        if (ratingValue < 4) {
+            // Перенаправление на WhatsApp при оценке < 4
+            window.location.href = 'https://wa.me/77011443070?text=Здравствуйте,%20у%20меня%20есть%20замечания%20по%20Вашему%20клубу';
+        } else {
+            // Перенаправление на 2ГИС при оценке >= 4
+            window.location.href = 'https://2gis.kz/aktobe/geo/70000001093439273';
+        }
+    });
+</script>
+
+</body>
+</html>
