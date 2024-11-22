@@ -1,9 +1,33 @@
-<!DOCTYPE html>
+[14:32, 22.11.2024] Az: <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оцените работу клуба Shaiqas</title>
+    <title>Оцените работу Shaiqas Cyberclub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Основные стили */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #333;
+            color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+     …
+[14:38, 22.11.2024] Az: <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оцените работу Shaiqas Cyberclub</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /* Основные стили */
@@ -84,6 +108,11 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
+        /* Подсвечиваем все звезды до выбранной */
+        .rating input:checked ~ input:checked + label {
+            background-color: #007bff;
+        }
+
         .submit-btn {
             background-color: #007bff;
             color: white;
@@ -105,26 +134,6 @@
         .submit-btn:active {
             background-color: #004085;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Кнопка для переключения темы */
-        .theme-toggle-btn {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            border: none;
-            margin-bottom: 20px;
-            transition: background-color 0.3s ease;
-        }
-
-        .theme-toggle-btn:hover {
-            background-color: #0056b3;
-        }
-
-        .theme-toggle-btn:active {
-            background-color: #004085;
         }
 
         /* Адаптивность для мобильных устройств */
@@ -164,9 +173,6 @@
 </head>
 <body class="dark-mode">
 
-<!-- Кнопка для переключения темы -->
-<button id="theme-toggle" class="theme-toggle-btn">Переключить тему</button>
-
 <div class="container">
     <h1>Оцените работу клуба Shaiqas</h1>
     <p>Пожалуйста, выберите оценку от 1 до 5</p>
@@ -193,19 +199,6 @@
 </div>
 
 <script>
-    // Переключение темы
-    document.getElementById('theme-toggle').addEventListener('click', function() {
-        document.body.classList.toggle('dark-mode');
-        const isDark = document.body.classList.contains('dark-mode');
-        
-        // Изменяем текст кнопки в зависимости от темы
-        if (isDark) {
-            this.textContent = "Переключить на светлую тему";
-        } else {
-            this.textContent = "Переключить на тёмную тему";
-        }
-    });
-
     // Обработка отправки формы
     document.getElementById('rating-form').addEventListener('submit', function(event) {
         event.preventDefault();  // предотвращаем отправку формы
@@ -214,7 +207,7 @@
         const rating = document.querySelector('input[name="rating"]:checked');
 
         if (!rating) {
-            alert("Пожалуйста, выберите оценку!");
+            alert("Пожалуйста, выберите оценку. Ваше мнение очень важно для нас");
             return;
         }
 
@@ -222,8 +215,11 @@
 
         // Логика перенаправления
         if (ratingValue < 4) {
+            // Выводим сообщение о перенаправлении
+            alert("Ваша оценка ниже 4 звезд. Вы будете перенаправлены в чат с владельцем клуба для дальнейшего обсуждения.");
+
             // Перенаправление на WhatsApp при оценке < 4
-            window.location.href = 'https://wa.me/номер_вашего_телефона?text=Здравствуйте,%20у%20меня%20есть%20замечания%20по%20Вашему%20клубу';
+            window.location.href = 'https://wa.me/77011443070?text=Здравствуйте,%20у%20меня%20есть%20замечания%20по%20Вашему%20клубу';
         } else {
             // Перенаправление на 2ГИС при оценке >= 4
             window.location.href = 'https://2gis.kz/aktobe/geo/70000001093439273';
