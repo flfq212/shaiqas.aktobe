@@ -9,8 +9,7 @@
         /* Основные стили */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #333;
-            color: #f4f4f9;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -18,30 +17,29 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            color: #333;
         }
 
         .container {
-            background: #444;
+            background: #ffffff;
             border-radius: 10px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             padding: 40px;
             text-align: center;
             width: 90%;
             max-width: 600px;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         h1 {
             font-size: 2.2rem;
             margin-bottom: 20px;
             font-weight: 600;
-            color: #f4f4f9;
+            color: #333;
         }
 
         p {
             font-size: 1.1rem;
-            color: #ddd;
+            color: #666;
             margin-bottom: 20px;
         }
 
@@ -57,22 +55,31 @@
         }
 
         .rating label {
+            font-size: 2.5rem;
             cursor: pointer;
             width: 70px;
             height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            background-color: #ccc;
+            color: #fff;
+            transition: all 0.3s ease-in-out;
             margin: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s, fill 0.3s;
+            user-select: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Подсветка выбранной оценки */
-        .rating input:checked + label,
         .rating label:hover,
         .rating label:active {
-            transform: scale(1.3);
-            fill: #007bff;
+            transform: scale(1.1);
+            background-color: #007bff;
+        }
+
+        /* Подсвечиваем выбранную оценку */
+        .rating input:checked + label {
+            background-color: #007bff;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
         .submit-btn {
@@ -84,61 +91,18 @@
             font-size: 1.2rem;
             cursor: pointer;
             margin-top: 30px;
-            transition: background-color 0.3s ease, transform 0.3s;
+            transition: background-color 0.3s ease;
             width: 100%;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
 
         .submit-btn:hover {
             background-color: #0056b3;
-            transform: scale(1.05);
         }
 
         .submit-btn:active {
             background-color: #004085;
-        }
-
-        /* Кнопка для переключения темы */
-        .theme-toggle-btn {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            border: none;
-            margin-bottom: 20px;
-            transition: background-color 0.3s ease, transform 0.3s;
-        }
-
-        .theme-toggle-btn:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-
-        .theme-toggle-btn:active {
-            background-color: #004085;
-        }
-
-        /* Сообщение об успешной отправке */
-        .confirmation-message {
-            display: none;
-            background-color: #28a745;
-            color: white;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            margin-top: 20px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Адаптивность для мобильных устройств */
@@ -176,12 +140,7 @@
         }
     </style>
 </head>
-<body class="dark-mode">
-
-<!-- Кнопка для переключения темы -->
-<button id="theme-toggle" class="theme-toggle-btn">
-    Переключить тему
-</button>
+<body>
 
 <div class="container">
     <h1>Оцените работу клуба Shaiqas</h1>
@@ -189,33 +148,23 @@
 
     <form id="rating-form">
         <div class="rating">
-            <!-- 1 звезда -->
             <input type="radio" name="rating" value="1" id="rating-1">
             <label for="rating-1">1</label>
 
-            <!-- 2 звезды -->
             <input type="radio" name="rating" value="2" id="rating-2">
             <label for="rating-2">2</label>
 
-            <!-- 3 звезды -->
             <input type="radio" name="rating" value="3" id="rating-3">
             <label for="rating-3">3</label>
 
-            <!-- 4 звезды -->
             <input type="radio" name="rating" value="4" id="rating-4">
             <label for="rating-4">4</label>
 
-            <!-- 5 звезд -->
             <input type="radio" name="rating" value="5" id="rating-5">
             <label for="rating-5">5</label>
         </div>
         <button type="submit" class="submit-btn">Отправить</button>
     </form>
-
-    <!-- Сообщение после отправки формы -->
-    <div id="confirmation-message" class="confirmation-message">
-        Спасибо за вашу оценку! Мы ценим ваш отзыв.
-    </div>
 </div>
 
 <script>
@@ -240,19 +189,6 @@
             // Перенаправление на 2ГИС при оценке >= 4
             window.location.href = 'https://2gis.ru/moscow/firm/номер_вашего_клуба';
         }
-
-        // Показать сообщение о подтверждении с анимацией
-        const confirmationMessage = document.getElementById('confirmation-message');
-        confirmationMessage.style.display = 'block';
-    });
-
-    // Переключение темы
-    document.getElementById('theme-toggle').addEventListener('click', function() {
-        document.body.classList.toggle('dark-mode');
-        const newTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-        document.body.style.backgroundColor = newTheme === 'dark' ? '#333' : '#fff';
-        document.body.style.color = newTheme === 'dark' ? '#f4f4f9' : '#333';
-        document.querySelector('.container').style.backgroundColor = newTheme === 'dark' ? '#444' : '#fff';
     });
 </script>
 
