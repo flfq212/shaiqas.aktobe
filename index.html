@@ -4,129 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Оцените работу клуба Shaiqas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Общие стили */
+        /* Основные стили */
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #121212; /* темный фон */
-            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
             height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .container {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #1f1f1f; /* темный фон контейнера */
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(145deg, #4caf50, #388e3c);
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 30px;
             text-align: center;
+            width: 90%;
+            max-width: 600px;
+            color: white;
+        }
+
+        /* Логотип */
+        .logo {
+            width: 150px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .logo:hover {
+            transform: rotate(15deg) scale(1.1);
         }
 
         h1 {
-            font-family: 'Press Start 2P', cursive; /* шрифт в стиле пиксельных игр */
-            color: #00ff00; /* яркий цвет для заголовков */
-            font-size: 28px;
+            font-size: 2.5rem;
             margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 2px;
         }
 
         p {
-            font-size: 18px;
-            color: #aaa;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
 
         .rating {
             display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
+            justify-content: space-evenly;
             flex-wrap: wrap;
-        }
-
-        .rating label {
-            font-size: 22px;
-            cursor: pointer;
-            padding: 15px 20px;
-            border: 3px solid #555;
-            border-radius: 50%;
-            transition: background-color 0.3s, transform 0.2s;
-            margin: 10px;
-            width: 20%;
-            color: #fff;
-            background-color: #333;
+            margin: 20px 0;
         }
 
         .rating input {
             display: none;
         }
 
-        /* Активная оценка */
-        .rating input:checked + label {
-            background-color: #00ff00;
-            border-color: #00ff00;
-            transform: scale(1.2); /* увеличение размера выбранной оценки */
-        }
-
-        /* Эффект при наведении */
-        .rating label:hover {
-            background-color: #444;
-            transform: scale(1.1);
-        }
-
-        /* Кнопка отправки */
-        .submit-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: #00ff00;
-            color: #121212;
-            border: none;
-            border-radius: 10px;
-            font-size: 20px;
+        .rating label {
+            font-size: 2rem;
             cursor: pointer;
-            transition: background-color 0.3s;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            background-color: #6c757d;
+            color: white;
+            transition: all 0.3s ease-in-out;
+            margin: 5px;
+            user-select: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .rating label:hover,
+        .rating label:active {
+            transform: scale(1.1);
+            background-color: #28a745;
+        }
+
+        /* Подсвечиваем выбранную оценку */
+        .rating input:checked + label {
+            background-color: #28a745;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
         }
 
         .submit-btn:hover {
-            background-color: #33cc33;
+            background-color: #218838;
+        }
+
+        .submit-btn:active {
+            background-color: #1e7e34;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-
             h1 {
-                font-size: 24px;
+                font-size: 2rem;
             }
 
             .rating label {
-                font-size: 20px;
-                width: 25%; /* ширина кнопок для планшетов */
+                font-size: 1.6rem;
+                width: 60px;
+                height: 60px;
             }
 
             .submit-btn {
-                font-size: 18px;
-                padding: 15px;
+                font-size: 1rem;
             }
         }
 
         @media (max-width: 480px) {
             .rating label {
-                font-size: 18px;
-                width: 30%; /* ширина кнопок для мобильных */
-            }
-
-            .submit-btn {
-                font-size: 16px;
-                padding: 14px;
+                font-size: 1.5rem;
+                width: 50px;
+                height: 50px;
             }
 
             h1 {
-                font-size: 20px;
+                font-size: 1.8rem;
+            }
+
+            .submit-btn {
+                font-size: 1rem;
+                padding: 12px 20px;
             }
         }
 
@@ -135,10 +154,13 @@
 <body>
 
 <div class="container">
+    <!-- Логотип вашего клуба -->
+    <img src="https://drive.google.com/file/d/1HE44UTHKApcIbc7hCNtW4lzCqGM25eby" alt="Shaiqas Club Logo" class="logo">
+
     <h1>Оцените работу клуба Shaiqas</h1>
-    
+    <p>Пожалуйста, выберите оценку от 1 до 5</p>
+
     <form id="rating-form">
-        <p>Пожалуйста, поставьте оценку от 1 до 5:</p>
         <div class="rating">
             <input type="radio" name="rating" value="1" id="rating-1">
             <label for="rating-1">1</label>
@@ -176,10 +198,10 @@
         // Логика перенаправления
         if (ratingValue < 4) {
             // Перенаправление на WhatsApp при оценке < 4
-            window.location.href = 'https://wa.me/номер_вашего_телефона?text=Здравствуйте,%20у%20меня%20есть%20замечания%20по%20Вашему%20клубу';
+            window.location.href = 'https://wa.me/номер_вашего_телефона?text=Здравствуйте,%20хочу%20обсудить%20оценку%20клуба';
         } else {
             // Перенаправление на 2ГИС при оценке >= 4
-            window.location.href = 'https://2gis.kz/aktobe/geo/70000001093439273';
+            window.location.href = 'https://2gis.ru/moscow/firm/номер_вашего_клуба';
         }
     });
 </script>
