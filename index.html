@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оцените работу Shaiqas Cyberzone</title>
+    <title>Оцените работу клуба Shaiqas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,10 +36,26 @@
         .rating label {
             font-size: 20px;
             cursor: pointer;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         .rating input {
             display: none;
+        }
+
+        /* Окрас выбранной оценки */
+        .rating input:checked + label {
+            background-color: #4CAF50;
+            color: #fff;
+            border-color: #4CAF50;
+        }
+
+        .rating label:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
         }
 
         .submit-btn {
@@ -60,31 +76,25 @@
 <body>
 
 <div class="container">
-    <h1>Оцените работу Shaiqas Cyberzone. Ваша оценка важна для нас</h1>
+    <h1>Оцените работу клуба Shaiqas</h1>
     
     <form id="rating-form">
         <p>Пожалуйста, поставьте оценку от 1 до 5:</p>
         <div class="rating">
-            <label>
-                1
-                <input type="radio" name="rating" value="1">
-            </label>
-            <label>
-                2
-                <input type="radio" name="rating" value="2">
-            </label>
-            <label>
-                3
-                <input type="radio" name="rating" value="3">
-            </label>
-            <label>
-                4
-                <input type="radio" name="rating" value="4">
-            </label>
-            <label>
-                5
-                <input type="radio" name="rating" value="5">
-            </label>
+            <input type="radio" name="rating" value="1" id="rating-1">
+            <label for="rating-1">1</label>
+
+            <input type="radio" name="rating" value="2" id="rating-2">
+            <label for="rating-2">2</label>
+
+            <input type="radio" name="rating" value="3" id="rating-3">
+            <label for="rating-3">3</label>
+
+            <input type="radio" name="rating" value="4" id="rating-4">
+            <label for="rating-4">4</label>
+
+            <input type="radio" name="rating" value="5" id="rating-5">
+            <label for="rating-5">5</label>
         </div>
         <button type="submit" class="submit-btn">Отправить</button>
     </form>
@@ -107,10 +117,10 @@
         // Логика перенаправления
         if (ratingValue < 4) {
             // Перенаправление на WhatsApp при оценке < 4
-            window.location.href = 'https://wa.me/77011443070?text=Здравствуйте,%20у%20меня%20есть%20замечания%20по%20Вашему%20клубу';
+            window.location.href = 'https://wa.me/номер_вашего_телефона?text=Здравствуйте,%20хочу%20обсудить%20оценку%20клуба';
         } else {
             // Перенаправление на 2ГИС при оценке >= 4
-            window.location.href = 'https://2gis.kz/aktobe/geo/70000001093439273';
+            window.location.href = 'https://2gis.ru/moscow/firm/номер_вашего_клуба';
         }
     });
 </script>
